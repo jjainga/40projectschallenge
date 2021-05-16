@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import API from "../utilities/API";
+import Title from "../components/jumbo/title"
 
 
 const ColorFlip = () => {
@@ -9,6 +10,10 @@ const ColorFlip = () => {
         mode: "monochrome",
         count: "20",
         
+    })
+    const [colorFlipState, setColorFlipState] = useState({
+        title: "Color Flip",
+        message: "Click a button and see what happens! hopefully you like something colorful!"
     })
     const [colorArrayState, setColorArrayState] = useState({})
 
@@ -25,6 +30,7 @@ const ColorFlip = () => {
 
       return (
           <div>
+              <Title props={colorFlipState} />
               <p>Hello world</p>
           </div>
       )
