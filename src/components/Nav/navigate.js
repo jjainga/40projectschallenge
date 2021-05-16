@@ -1,25 +1,26 @@
 import React from 'react'
+import { Link, useLocation } from "react-router-dom";
 
 
 
 const Navigate = () => {
+
+    const location = useLocation();
+
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="https://www.google.com">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <Link to="/40projectchallenge" className={location.pathname === "40projectchallenge" ? "nav-link active" : "nav-link"} >#40Challenge</Link>
+                
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav mr-auto">
                         
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="https://www.google.com"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="https://www.google.com"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Projects
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="https://www.google.com">Color Flip</a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <Link className="dropdown-item" href="https://www.google.com">Color Flip</Link>
                             
                                 </div>
                             </li>
@@ -31,3 +32,4 @@ const Navigate = () => {
     )
 }
 export default Navigate;
+
