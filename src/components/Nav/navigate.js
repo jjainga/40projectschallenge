@@ -20,7 +20,7 @@ const Navigate = () => {
                                     Projects
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <Link className="dropdown-item" href="https://www.google.com">Color Flip</Link>
+                                    <Link to="/Color" className={location.pathname === "Color" ? "nav-link active" : "nav-link"} class="dropdown-item" href="https://www.google.com">Color Flip</Link>
                             
                                 </div>
                             </li>
