@@ -1,15 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from "react";
 
 
 
-const title = () => {
+const Title = (props) => {
+  
+  const [titleState, setTitleState] = useState({
+    title: "",
+    message: ""
+  });
+
+  async function pageInfo() {
+    console.log(props)
+    let x = await props.props.title
+    let y = await props.props.message
+    setTitleState({title: x, message: y})
+  }
+
+  useEffect(() => {
+    pageInfo();
+},[])
+
+  console.log(props)
     return (
       <div class="jumbotron">
-        <h1 class="display-4">40 Project Challenge!</h1>
-          <p class="lead">To get myself back in the coding spirit I will be creating this app whcih will show off 40 different codings projects!</p>
+        <h1 class="display-4">{titleState.title}</h1>
+          <p class="lead">{titleState.message}</p>
         <hr class="my-4" />
     </div>
    
     )
 }
-export default title;
+export default Title;
