@@ -10,7 +10,7 @@ const Title = (props) => {
   });
 
   async function pageInfo() {
-    console.log(props)
+    // console.log(props)
     let x = await props.props.title
     let y = await props.props.message
     setTitleState({title: x, message: y})
@@ -20,7 +20,7 @@ const Title = (props) => {
     pageInfo();
 },[])
 
-  console.log(props)
+  // console.log(props)
     return (
       <div class="jumbotron">
         <h1 class="display-4">{titleState.title}</h1>
