@@ -6,8 +6,12 @@ const ColorButton = (props) => {
 
   const [buttonState, setButtonState] = useState();
 
+  async function setProps() {
+    let data = await props.props
+    setButtonState(data)
+}
   useEffect( () => {
-    setButtonState(props.props)
+    setProps()
   },[props])
     
     

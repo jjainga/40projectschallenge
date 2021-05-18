@@ -3,6 +3,9 @@ import API from "../utilities/API";
 import Title from "../components/jumbo/title"
 import Card from "../components/colorCard/colorCard"
 import Button from "../components/button/colorButton"
+import DropDown from "../components/dropDown/dropDown"
+
+document.getElementById('app')
 
 
 const ColorFlip = () => {
@@ -13,7 +16,7 @@ const ColorFlip = () => {
         mode: "monochrome",
         count: "20",
         
-    })
+    });
     const [selectState] = useState(
         [
             {
@@ -29,12 +32,14 @@ const ColorFlip = () => {
                 id: "008000"
             }
     ]
-    )
+    );
+
+    const [modeState, setModeState] = useState(["monochrome", "monochrome-dark", "monochrome-light", "analogic", "complement", "analogic-complement", "triad", "quad"]);
     const [colorFlipState] = useState({
         title: "Color Flip",
         message: "Click a button and see what happens! hopefully you like something colorful!"
-    })
-    const [colorArrayState, setColorArrayState] = useState({})
+    });
+    const [colorArrayState, setColorArrayState] = useState({});
 
     useEffect(() => {
         getColor()
@@ -50,7 +55,13 @@ const ColorFlip = () => {
         setColorState({ ...colorState, color : e.target.name, id : e.target.id})
     }
 
-    
+    const changeBackground = (e) => {
+        document.body.style.background = e.target.id
+    }
+    const changeMode = (e) => {
+        setColorState({ ...colorState, mode : e.target.id})
+    }
+
 
     console.log(colorArrayState.colors);
       return (
@@ -61,6 +72,7 @@ const ColorFlip = () => {
                     {selectState.map(idObj => 
                         <Button props={idObj} changeColor={changeColor} />
                     )}
+                    <DropDown props={modeState} changeMode={changeMode} />
                   </div>
                   <div className="row">
                     <div className="col-12">
@@ -71,7 +83,7 @@ const ColorFlip = () => {
                   <div className="row">
                     {colorArrayState.colors != undefined ?
                     colorArrayState.colors.map(colorObj => 
-                    <Card props={colorObj} />
+                    <Card props={colorObj} changeBackground={changeBackground} />
                     ) : null}
                   </div>
               </div>
