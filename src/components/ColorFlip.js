@@ -46,6 +46,12 @@ const ColorFlip = () => {
         setColorArrayState(data)
     }
     
+     const changeColor = (e) => {
+        setColorState({ ...colorState, color : e.target.name, id : e.target.id})
+    }
+
+    
+
     console.log(colorArrayState.colors);
       return (
           <div>
@@ -53,7 +59,7 @@ const ColorFlip = () => {
               <div className="container">
                   <div className="row mx-auto">
                     {selectState.map(idObj => 
-                        <Button props={idObj} />
+                        <Button props={idObj} changeColor={changeColor} />
                     )}
                   </div>
                   <div className="row">
