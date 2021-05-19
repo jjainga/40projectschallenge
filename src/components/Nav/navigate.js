@@ -22,7 +22,7 @@ const Navigate = () => {
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <Link to="/Color" className={location.pathname === "Color" ? "nav-link active" : "nav-link"} class="dropdown-item" >Color Flip</Link>
                                     <Link to="/Counter" className={location.pathname === "Counter" ? "nav-link active" : "nav-link"} class="dropdown-item" >Counter</Link>
-                            
+                                    <Link to="/Calculator" className={location.pathname === "Calculator" ? "nav-link active" : "nav-link"} class="dropdown-item" >Calculator</Link>
                                 </div>
                             </li>
                         
