@@ -37,7 +37,7 @@ const ColorFlip = () => {
     const [modeState, setModeState] = useState(["monochrome", "monochrome-dark", "monochrome-light", "analogic", "complement", "analogic-complement", "triad", "quad"]);
     const [colorFlipState] = useState({
         title: "Color Flip",
-        message: "Click a button and see what happens! hopefully you like something colorful!"
+        message: "Click a button and see what happens! hopefully you like something colorful! This page uses thecolorapi.com for all the color images and hex codes"
     });
     const [colorArrayState, setColorArrayState] = useState({});
 
