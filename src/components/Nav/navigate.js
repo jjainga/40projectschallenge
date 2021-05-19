@@ -16,11 +16,12 @@ const Navigate = () => {
                         <ul className="navbar-nav mr-auto">
                         
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="https://www.google.com"id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Projects
-                                </a>
+                                </Link>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <Link to="/Color" className={location.pathname === "Color" ? "nav-link active" : "nav-link"} class="dropdown-item" href="https://www.google.com">Color Flip</Link>
+                                    <Link to="/Color" className={location.pathname === "Color" ? "nav-link active" : "nav-link"} class="dropdown-item" >Color Flip</Link>
+                                    <Link to="/Counter" className={location.pathname === "Counter" ? "nav-link active" : "nav-link"} class="dropdown-item" >Counter</Link>
                             
                                 </div>
                             </li>

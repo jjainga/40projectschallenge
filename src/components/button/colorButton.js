@@ -17,7 +17,7 @@ const ColorButton = (props) => {
     
     console.log(buttonState)
     return (
-        <button type="button" class="btn btn-primary btn-lg m-3" id={props.props.id} name={props.props.color} onClick={props.changeColor} >{props.props.color}</button>
+        <button type="button" className="btn btn-primary btn-lg m-3" id={props.props.id} name={props.props.color} onClick={props.changeColor} >{props.props.color}</button>
           )
 }
 export default ColorButton;
