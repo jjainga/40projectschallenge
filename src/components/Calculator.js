@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Title from "./jumbo/title"
 import NumberButton from "./button/numberButton"
+import CharButton from "./button/charButton"
 
 
 const Counter = () => {
@@ -81,24 +82,24 @@ const Counter = () => {
     ])
     const [wholeNumState, setWholeNumState] = useState();
 
-    // const [charState, setCharState] = useState = ([
-    //     {
-    //         character: ".",
-    //         name: "decimal"
-    //     },
-    //     {
-    //         character:"#",
-    //         name: "pound"
-    //     },
-    //     {
-    //         character: "^",
-    //         name: "circumflex"
-    //     },
-    //     {
-    //         character:"%",
-    //         name: "percent"
-    //     }
-    // ])
+    const [charState, setCharState] = useState([
+        {
+            character: ".",
+            name: "decimal"
+        },
+        {
+            character:"#",
+            name: "pound"
+        },
+        {
+            character: "^",
+            name: "circumflex"
+        },
+        {
+            character:"%",
+            name: "percent"
+        }
+    ])
     const [displayState, setDisplayState] = useState()
     useEffect( () => {
        filterZero()
@@ -126,6 +127,9 @@ const Counter = () => {
                                         wholeNumState.map(obj => <NumberButton props={obj} />)
                                         :null
                                 }
+                                <CharButton character={charState[0].character} name={charState[0].name} />
+                                <NumberButton props={numberState[9]} />
+                                <CharButton character={charState[1].character} name={charState[1].name} />
                             </div>
                             
                         </div>
