@@ -9,6 +9,7 @@ const Counter = () => {
         title: "Counter!",
         message: "Count up, Count down! The choice is yours!"
     })
+
     const [actionState] = useState ([
         {
             name:"minus",
@@ -22,6 +23,9 @@ const Counter = () => {
         }
     ])
     const [countState, setCountState] = useState(0)
+    useEffect( () => {
+        setCountState( parseInt(localStorage.getItem("counter")))
+    },[])
 
     const count = (e) => {
         let counter = countState
@@ -29,10 +33,12 @@ const Counter = () => {
             case "add" :
                 let counts = counter + 1
                 setCountState(counts)
+                localStorage.setItem("counter", counts)
                 break;
             case "subtract" :
                 let counted = counter - 1
-                setCountState(counted);
+                setCountState(counted)
+                localStorage.setItem("counter", counted);
                 break;
             default:
         }
