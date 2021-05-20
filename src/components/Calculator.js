@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import Title from "./jumbo/title"
 import NumberButton from "./button/numberButton"
 import CharButton from "./button/charButton"
+import FunctionButton from "./button/functionButton"
 
 
 const Counter = () => {
@@ -116,7 +117,7 @@ const Counter = () => {
             <Title props={calculatorMessState} />
             <div className="container mx-auto" style={{width: '500em'}}>
                 
-                    <div className="row ">
+                    <div className="row col-12 mx-auto">
                         <input className="" value={displayState}>{displayState}</input>
                     </div>
                     <div className="row ">
@@ -133,8 +134,8 @@ const Counter = () => {
                             </div>
                             
                         </div>
-                        <div className="col-4">
-
+                        <div className="col-1">
+                               {functionState.map( obj => <FunctionButton props={obj} /> )} 
                         </div>
                     </div>
             </div>
