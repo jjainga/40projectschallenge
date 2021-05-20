@@ -5,7 +5,7 @@ import CharButton from "./button/charButton"
 import FunctionButton from "./button/functionButton"
 
 
-const Counter = () => {
+const Calculator = () => {
 
     const [calculatorMessState] = useState({
         title: "Add, Subtract, Multiply and Divide!!",
@@ -101,31 +101,37 @@ const Counter = () => {
             name: "percent"
         }
     ])
-    const [displayState, setDisplayState] = useState()
+    const [displayState, setDisplayState] = useState({
+        arr: []
+    })
     useEffect( () => {
        filterZero()
     },[])
 
     const filterZero = async () => {
         const numbers = await numberState.filter( obj => obj.int > 0)
-        console.log(numbers)
+        // console.log(numbers)
         setWholeNumState(numbers)
     }
-    
+    const enterDisplay = async (e) => {
+        let newArr = displayState.arr.concat(e.target.value)
+        setDisplayState({arr: newArr})
+    }
+
     return(
         <div>
             <Title props={calculatorMessState} />
             <div className="container mx-auto" style={{width: '500em'}}>
                 
                     <div className="row col-12 mx-auto">
-                        <input className="" value={displayState}>{displayState}</input>
+                        <input className="input-group-text" placeholder="00"  onChange={enterDisplay} value={displayState.arr.join("")}></input>
                     </div>
                     <div className="row ">
                         <div className="col-3">
                             <div className="d-table-row">
                                 {
                                     wholeNumState != undefined ?
-                                        wholeNumState.map(obj => <NumberButton props={obj} />)
+                                        wholeNumState.map(obj => <NumberButton props={obj} enterDisplay={enterDisplay} />)
                                         :null
                                 }
                                 <CharButton character={charState[0].character} name={charState[0].name} />
@@ -143,4 +149,4 @@ const Counter = () => {
     )
 }
 
-export default Counter;
+export default Calculator;
