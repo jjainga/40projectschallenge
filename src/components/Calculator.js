@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import Title from "./jumbo/title"
 import NumberButton from "./button/numberButton"
 import CharButton from "./button/charButton"
+import FunctionButton from "./button/functionButton"
 
 
 const Counter = () => {
@@ -134,7 +135,7 @@ const Counter = () => {
                             
                         </div>
                         <div className="col-4">
-
+                               {functionState.map( obj => <FunctionButton props={obj} /> )} 
                         </div>
                     </div>
             </div>
