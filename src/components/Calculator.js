@@ -117,7 +117,7 @@ const Counter = () => {
             <Title props={calculatorMessState} />
             <div className="container mx-auto" style={{width: '500em'}}>
                 
-                    <div className="row ">
+                    <div className="row col-12 mx-auto">
                         <input className="" value={displayState}>{displayState}</input>
                     </div>
                     <div className="row ">
@@ -134,7 +134,7 @@ const Counter = () => {
                             </div>
                             
                         </div>
-                        <div className="col-4">
+                        <div className="col-1">
                                {functionState.map( obj => <FunctionButton props={obj} /> )} 
                         </div>
                     </div>
