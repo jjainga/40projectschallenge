@@ -24,7 +24,7 @@ const Counter = () => {
     ])
     const [countState, setCountState] = useState(0)
     useEffect( () => {
-        setCountState( parseInt(localStorage.getItem("counter")))
+        setCountState( localStorage.getItem("counter") !== null  ? parseInt(localStorage.getItem("counter")) : 0)
     },[])
 
     const count = (e) => {
@@ -50,7 +50,7 @@ const Counter = () => {
             <div className="container ">
                 
                     <div className="row d-table-row">
-                        <span className="" id={countState}>{countState}</span>
+                        <span className="" id={countState} >{countState}</span>
                     </div>
                     <div className="row d-table-row">
                         {actionState.map( obj => <CountButton props={obj} count={count}/>)}
