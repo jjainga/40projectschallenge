@@ -118,6 +118,10 @@ const Calculator = () => {
         setDisplayState({arr: newArr})
     }
 
+    // const calculate = () => {
+    //     switch
+    // }
+
     return(
         <div>
             <Title props={calculatorMessState} />
@@ -141,7 +145,7 @@ const Calculator = () => {
                             
                         </div>
                         <div className="col-1">
-                               {functionState.map( obj => <FunctionButton props={obj} /> )} 
+                               {functionState.map( obj => <FunctionButton props={obj} enterDisplay={enterDisplay} /> )} 
                         </div>
                     </div>
             </div>
