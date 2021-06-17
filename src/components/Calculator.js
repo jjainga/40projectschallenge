@@ -102,7 +102,9 @@ const Calculator = () => {
         }
     ])
     const [displayState, setDisplayState] = useState({
-        arr: []
+        first: [],
+        symbol: '',
+        second: []
     })
     useEffect( () => {
        filterZero()
@@ -114,8 +116,18 @@ const Calculator = () => {
         setWholeNumState(numbers)
     }
     const enterDisplay = async (e) => {
-        let newArr = displayState.arr.concat(e.target.value)
-        setDisplayState({arr: newArr})
+        if(displayState.first !== [] && displayState.symbol !== '') {
+            let newArr = displayState.first.concat(e.target.value)
+            setDisplayState({second: newArr})
+
+        } else {
+            let newArr = displayState.first.concat(e.target.value)
+            setDisplayState({first: newArr})
+        }
+    }
+    const enterFunction = async (e) => {
+        let char = displayState.symbol.concat(e.target.value)
+            setDisplayState({symbol: char})
     }
 
     // const calculate = () => {
